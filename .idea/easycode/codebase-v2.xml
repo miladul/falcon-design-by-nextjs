@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/app/cart/page.tsx;C:/Users/hp/Desktop/react-project/my-next-app/src/app/product/[slug]/page.tsx;C:/Users/hp/Desktop/react-project/my-next-app/src/app/globals.css;C:/Users/hp/Desktop/react-project/my-next-app/src/app/layout.js;C:/Users/hp/Desktop/react-project/my-next-app/src/app/layout.tsx;C:/Users/hp/Desktop/react-project/my-next-app/src/app/page.js;C:/Users/hp/Desktop/react-project/my-next-app/src/app/page.tsx;C:/Users/hp/Desktop/react-project/my-next-app/src/constants/api.ts;C:/Users/hp/Desktop/react-project/my-next-app/src/context/CartContext.tsx;C:/Users/hp/Desktop/react-project/my-next-app/jsconfig.json;C:/Users/hp/Desktop/react-project/my-next-app/next-env.d.ts;C:/Users/hp/Desktop/react-project/my-next-app/package-lock.json;C:/Users/hp/Desktop/react-project/my-next-app/package.json;C:/Users/hp/Desktop/react-project/my-next-app/README.md;C:/Users/hp/Desktop/react-project/my-next-app/tsconfig.json" />
+  </component>
+</project>
