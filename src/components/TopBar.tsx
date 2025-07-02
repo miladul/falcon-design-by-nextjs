@@ -11,7 +11,7 @@ const TopBar = () => {
     const cartCount = cartItems.length;
     return (
         <div className="bg-black text-white">
-            <div className="container mx-auto px-20 py-2 flex flex-wrap lg:flex-nowrap items-center justify-between gap-2">
+            <div className="container mx-auto px-2 md:px-20 py-2 flex flex-wrap lg:flex-nowrap items-center justify-between gap-2">
 
                 {/* Left: Logo */}
                 <a className="flex items-center gap-2 font-bold text-lg" href="/">

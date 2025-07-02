@@ -27,7 +27,7 @@ export default function Home() {
             {loading ? (
                 <div className="text-center mt-4 text-gray-600">Loading...</div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+                <div className="px-2 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
                     {products.map((product) => (
                         <div key={product.id} className="border p-4 rounded shadow">
                             <img

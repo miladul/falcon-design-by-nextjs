@@ -71,13 +71,6 @@ export default function CartSync() {
         return merchantItems.every((item) => selectedIds.includes(item.id));
     };
 
-/* <<<<<<<<<<<<<<  ✨ Windsurf Command ⭐ >>>>>>>>>>>>>>>> */
-    /**
-     * Toggle all items in the given merchant group as selected.
-     * @param merchantItems The items of the merchant group
-     * @param checked Whether to select all items or not
-     */
-/* <<<<<<<<<<  76cf912c-2a35-44c3-8062-2a40bf22fddc  >>>>>>>>>>> */
     const toggleMerchantSelectAll = (merchantItems: typeof cartItems, checked: boolean) => {
         if (checked) {
             const newSelections = merchantItems.filter(item => !selectedIds.includes(item.id));

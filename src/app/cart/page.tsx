@@ -9,7 +9,7 @@ export default function CartPage() {
 
     return (
         <DefaultLayout>
-            <div className="container mx-auto px-20 mt-2">
+            <div className="container mx-auto  px-2 md:px-20 mt-2">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-2">
                     <div className="md:col-span-12">
                         <div className="text-sm text-gray-600">

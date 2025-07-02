@@ -22,7 +22,7 @@ export default async function ProductPage({params}: Props) {
 
     return (
         <DefaultLayout>
-            <div className="px-20 grid grid-cols-1 md:grid-cols-12 gap-10 my-2">
+            <div className="px-2 md:px-20 grid grid-cols-1 md:grid-cols-12 gap-10 my-2">
                 <div className="md:col-span-12">
                     <div className="text-sm text-gray-600">
                         <Link href="/" className="hover:underline text-black-600">Home</Link>
