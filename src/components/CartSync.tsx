@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { useEffect } from "react";
+import { useMemo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     clearCart,
@@ -9,9 +8,10 @@ import {
     setCart,
 } from "../lib/redux/cartSlice";
 import {
-    selectAll,
     deselectAll,
-    toggleItem, setSelectedItemsByCartItems, setSelectedItems,
+    toggleItem,
+    setSelectedItemsByCartItems,
+    setSelectedItems,
 } from "../lib/redux/cartSelectionSlice";
 import { RootState } from "@/store";
 
@@ -55,7 +55,6 @@ export default function CartSync() {
         dispatch(setSelectedItems(updatedSelectedItems));
     };
 
-    // ✅ Group items by merchant_id
     const groupedItems = useMemo(() => {
         const groups: Record<number, typeof cartItems> = {};
         cartItems.forEach((item) => {
@@ -68,6 +67,32 @@ export default function CartSync() {
         return groups;
     }, [cartItems]);
 
+    const isMerchantGroupSelected = (merchantItems: typeof cartItems) => {
+        return merchantItems.every((item) => selectedIds.includes(item.id));
+    };
+
+/* <<<<<<<<<<<<<<  ✨ Windsurf Command ⭐ >>>>>>>>>>>>>>>> */
+    /**
+     * Toggle all items in the given merchant group as selected.
+     * @param merchantItems The items of the merchant group
+     * @param checked Whether to select all items or not
+     */
+/* <<<<<<<<<<  76cf912c-2a35-44c3-8062-2a40bf22fddc  >>>>>>>>>>> */
+    const toggleMerchantSelectAll = (merchantItems: typeof cartItems, checked: boolean) => {
+        if (checked) {
+            const newSelections = merchantItems.filter(item => !selectedIds.includes(item.id));
+            const updatedSelections = [...selectedIds, ...newSelections.map(item => item.id)];
+            const updatedSelectedItems = cartItems.filter(item => updatedSelections.includes(item.id));
+
+            dispatch(setSelectedItemsByCartItems(updatedSelectedItems));
+        } else {
+            const updatedSelections = selectedIds.filter(id => !merchantItems.some(item => item.id === id));
+            const updatedSelectedItems = cartItems.filter(item => updatedSelections.includes(item.id));
+
+            dispatch(setSelectedItemsByCartItems(updatedSelectedItems));
+        }
+    };
+
     return (
         <div className="mt-6">
             <div className="flex justify-between items-center mb-4">
@@ -78,7 +103,7 @@ export default function CartSync() {
                             type="checkbox"
                             checked={allSelected}
                             onChange={(e) => toggleSelectAll(e.target.checked)}
-                        />{" "}
+                        />
                         Select All
                     </label>
                     <button
@@ -95,10 +120,14 @@ export default function CartSync() {
             {cartItems.length === 0 ? (
                 <p className="text-gray-500">Your cart is empty.</p>
             ) : (
-                // ✅ Render merchant-wise groups
                 Object.entries(groupedItems).map(([merchantId, items]) => (
                     <div key={merchantId} className="mb-8">
-                        <div className="text-lg font-semibold text-gray-700 mb-2 flex items-center">
+                        <div className="text-lg font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                checked={isMerchantGroupSelected(items)}
+                                onChange={(e) => toggleMerchantSelectAll(items, e.target.checked)}
+                            />
                             🏬 {items[0].shop_name}
                         </div>
 
@@ -161,7 +190,7 @@ export default function CartSync() {
                                     <div className="col-span-3 text-right">
                                         <div className="flex justify-end items-center gap-2 text-lg font-bold text-gray-800">
                                             <span>৳{item.price}</span>
-                                            {item.oldPrice && (
+                                            {item.oldPrice && item.price != item.oldPrice && (
                                                 <span className="text-sm font-normal line-through text-gray-400">
                                                     ৳{item.oldPrice}
                                                 </span>
