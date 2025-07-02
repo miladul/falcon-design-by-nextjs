@@ -14,7 +14,13 @@ interface Props {
     params: { slug: string };
 }
 
-export default async function ProductPage({params}: Props) {
+type PageProps = {
+    params: {
+        slug: string;
+    };
+};
+
+export default async function ProductPage({ params }: PageProps) {
     const product = await fetchProductDetails(params.slug);
     const categories = await fetchCategories();
 

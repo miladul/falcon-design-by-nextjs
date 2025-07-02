@@ -14,6 +14,7 @@ import {
     setSelectedItems,
 } from "../lib/redux/cartSelectionSlice";
 import { RootState } from "@/store";
+import Image from "next/image";
 
 export default function CartSync() {
     const dispatch = useDispatch();
@@ -139,13 +140,15 @@ export default function CartSync() {
                                     </div>
 
                                     <div className="col-span-2">
-                                        <img
+                                        <Image
                                             src={item.image || "/shirt.png"}
                                             alt={item.name}
-                                            width={80}
-                                            height={80}
+                                            width={1000}
+                                            height={1000}
                                             className="rounded-md object-cover"
                                         />
+
+
                                     </div>
 
                                     <div className="col-span-6">

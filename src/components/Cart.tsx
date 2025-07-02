@@ -41,8 +41,8 @@ export default function Cart() {
                                     <Image
                                         src={item.image}
                                         alt={item.name}
-                                        width={80}
-                                        height={80}
+                                        width={1000}
+                                        height={1000}
                                         className="rounded"
                                     />
                                     <div className="flex-1">

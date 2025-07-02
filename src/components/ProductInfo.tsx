@@ -2,7 +2,8 @@
 import {Product} from '@/types';
 import QuantitySelector from './QuantitySelector';
 import AddToCartButton from './AddToCartButton';
-import {ChevronDownIcon, ShareIcon, HeartIcon} from '@heroicons/react/24/solid'; // or /outline
+import {ChevronDownIcon, ShareIcon, HeartIcon} from '@heroicons/react/24/solid';
+import Image from "next/image"; // or /outline
 
 export default function ProductInfo({product, categories}: { product: Product, categories: any[] }) {
     const category = categories.find(c => c.id === product.category_id);
@@ -54,24 +55,32 @@ export default function ProductInfo({product, categories}: { product: Product, c
                 >Navy Blue</span></p>
 
                 <div className="flex space-x-3">
-                    <img
+                    <Image
                         src="https://picsum.photos/200/300"
                         alt="Navy Blue"
+                        width={1000}
+                        height={1000}
                         className="w-8 h-8 cursor-pointer border-2 border-green-600 hover:border-gray-600 rounded"
                     />
-                    <img
+                    <Image
                         src="https://picsum.photos/200/300"
                         alt="Blue"
+                        width={1000}
+                        height={1000}
                         className="w-8 h-8 cursor-pointer border-2 hover:border-gray-600 rounded"
                     />
-                    <img
+                    <Image
                         src="https://picsum.photos/200/300"
                         alt="Light Blue"
+                        width={1000}
+                        height={1000}
                         className="w-8 h-8 cursor-pointer border-2 hover:border-gray-600 rounded"
                     />
-                    <img
+                    <Image
                         src="https://picsum.photos/200/300"
                         alt="Disabled Gray"
+                        width={1000}
+                        height={1000}
                         className="w-8 h-8 opacity-40 cursor-not-allowed border-2 rounded"
                         aria-disabled="true"
                     />

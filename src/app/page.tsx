@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link"; // For client-side navigation
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import Image from "next/image";
 
 export default function Home() {
     const [products, setProducts] = useState([]);
@@ -30,9 +31,11 @@ export default function Home() {
                 <div className="px-2 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
                     {products.map((product) => (
                         <div key={product.id} className="border p-4 rounded shadow">
-                            <img
+                            <Image
                                 src={product.thumbnail}
                                 alt={product.name}
+                                width={1000}
+                                height={1000}
                                 className="w-full h-48 object-cover rounded mb-4"
                             />
                             <h2 className="text-lg font-semibold">{product.name}</h2>

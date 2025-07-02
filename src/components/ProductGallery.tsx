@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 interface Props {
     images: Record<string, { url: string }>;
@@ -37,20 +38,25 @@ export default function ProductGallery({ images }: Props) {
                 onMouseLeave={resetZoom}
                 className="relative overflow-hidden"
             >
-                <img
-                    src={mainImage}
-                    alt="Main product"
-                    style={zoomStyle}
-                    className="w-full h-auto rounded main-image transition-transform duration-200 ease-in-out"
+                <Image src={mainImage}
+                       alt="Main product"
+                       style={zoomStyle}
+                       width={1000}
+                       height={1000}
+                       className="w-full h-auto rounded main-image transition-transform duration-200 ease-in-out"
                 />
+
+
             </div>
 
             <div className="flex gap-2 mt-4 other-image">
                 {urls.map((url, i) => (
-                    <img
+                    <Image
                         key={i}
                         src={url}
                         onClick={() => setMainImage(url)}
+                        width={1000}
+                        height={1000}
                         className={`w-16 h-16 object-cover rounded border cursor-pointer ${
                             mainImage === url ? "border-blue-500 opacity-50" : "border-gray-300 opacity-100"
                         }`}

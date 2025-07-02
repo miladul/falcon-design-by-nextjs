@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['demo.sirv.com', 'via.placeholder.com', 'upload.wikimedia.org'], // add other domains as needed
+        domains: ['demo.sirv.com', 'via.placeholder.com', 'upload.wikimedia.org', 'picsum.photos'], // add other domains as needed
         remotePatterns: [
             {
                 protocol: 'http',

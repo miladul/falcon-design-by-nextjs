@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -52,20 +53,23 @@ export default function Footer() {
                     <h3 className="text-lg font-semibold mb-4">Need support?</h3>
                     <p className="mb-2 text-sm text-gray-300">Call us: <br /><strong className="text-white">+880 9876-543210</strong></p>
                     <div className="flex flex-col gap-3 mt-4">
-                        <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                        <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
                             <div className="w-40 h-12 bg-white rounded overflow-hidden">
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/180px-Google_Play_Store_badge_EN.svg.png"
-                                    alt="Google Play"
-                                    className="w-full h-full object-contain"
-                                />
+                                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/180px-Google_Play_Store_badge_EN.svg.png"
+                                       alt="Google Play"
+                                       width={1000}
+                                       height={1000}
+                                       className="w-full h-full object-contain" />
                             </div>
-                        </a>
+                        </Link>
                         <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
                             <div className="w-40 h-12 bg-white rounded overflow-hidden">
-                                <img
+
+                                <Image
                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
                                     alt="App Store"
+                                    width={1000}
+                                    height={1000}
                                     className="w-full h-full object-contain"
                                 />
                             </div>
