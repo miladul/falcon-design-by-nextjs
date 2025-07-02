@@ -10,7 +10,7 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [loadingSlug, setLoadingSlug] = useState(null);
 
-    useEffect(() => {
+    /*useEffect(() => {
         fetch("http://157.230.240.97:9999/api/v1/shop/products")
             .then((res) => res.json())
             .then((data) => {
@@ -21,7 +21,21 @@ export default function Home() {
                 console.error("Error fetching products:", error);
                 setLoading(false);
             });
+    }, []);*/
+
+    useEffect(() => {
+        fetch("/api/products")
+            .then((res) => res.json())
+            .then((data) => {
+                setProducts(data.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error);
+                setLoading(false);
+            });
     }, []);
+
 
     return (
         <DefaultLayout>

@@ -16,3 +16,10 @@ export async function fetchCategories() {
     const json = await res.json();
     return json.data;
 }
+
+export default async function fetchProducts() {
+    const res = await fetch(`${API_BASE}/products`);
+    if (!res.ok) throw new Error('Failed to fetch products');
+    const json = await res.json();
+    return json.data;
+}
