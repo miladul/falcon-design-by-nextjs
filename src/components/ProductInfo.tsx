@@ -1,5 +1,5 @@
 // components/ProductInfo.tsx
-import {Product} from '@/types';
+import {Product} from '../types';
 import QuantitySelector from './QuantitySelector';
 import AddToCartButton from './AddToCartButton';
 import {ChevronDownIcon, ShareIcon, HeartIcon} from '@heroicons/react/24/solid';
@@ -14,7 +14,6 @@ export default function ProductInfo({product, categories}: { product: Product, c
             <h1 className="text-2xl font-semibold">{product.name}</h1>
 
             <div className="flex justify-between items-center mt-2">
-                {/* Left side */}
                 <p className="flex items-center text-black-600 text-xl">
                     {product.rating_avg} ⭐⭐⭐⭐⭐ {product.rating_count}
                     <ChevronDownIcon className="w-5 h-5 text-gray-500 ml-1"/>

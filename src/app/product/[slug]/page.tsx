@@ -10,21 +10,12 @@ import DeliveryOptionsCard from "../../../components/DeliveryOptionsCard";
 import SoldByCard from "../../../components/SoldByCard";
 import Link from "next/link";
 
-interface Props {
-    params: { slug: string };
-}
 
-type PageProps = {
-    params: {
-        slug: string;
-    };
-};
+export default async function ProductPage({ params }: { params: { slug: string } }) {
 
-export default async function ProductPage({ params }: PageProps) {
+    console.log('params.slug', params.slug)
     const product = await fetchProductDetails(params.slug);
     const categories = await fetchCategories();
-
-    console.log('product', product)
 
     return (
         <DefaultLayout>

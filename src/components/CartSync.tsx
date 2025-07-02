@@ -13,7 +13,7 @@ import {
     setSelectedItemsByCartItems,
     setSelectedItems,
 } from "../lib/redux/cartSelectionSlice";
-import { RootState } from "@/store";
+import { RootState } from "../lib/redux/store";
 import Image from "next/image";
 
 export default function CartSync() {

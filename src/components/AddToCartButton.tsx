@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../lib/redux/cartSlice';
-import { Product } from '@/types';
+import { Product } from '../types';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { RootState } from '../lib/redux/store'; // Adjust this path if needed
