@@ -1,15 +1,14 @@
-import './globals.css'
-import { CartProvider } from '../context/CartContext';
+// src/app/layout.tsx
+import './globals.css';
+import { ReduxProvider } from './providers/ReduxProvider';
 
-export const metadata = {
-    title: 'E-commerce App',
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
         <body>
-        <CartProvider>{children}</CartProvider>
+        <ReduxProvider>
+            {children}
+        </ReduxProvider>
         </body>
         </html>
     );

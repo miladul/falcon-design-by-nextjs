@@ -12,3 +12,4 @@ export interface Product {
     is_variant: boolean;
     thumbnail: string;
 }
+
