@@ -2,7 +2,7 @@ import { Search, ShoppingCart, User, Star } from "lucide-react";
 import Link from "next/link";
 
 const TopBar = () => {
-    const cartCount = 3;
+    const cartCount = 0;
 
     return (
         <div className="bg-black text-white">
@@ -37,7 +37,9 @@ const TopBar = () => {
                 <div className="flex items-center gap-4">
                     <Link href="/cart" className="relative">
                         <ShoppingCart size={20} />
-                        <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">3</span>
+                        {cartCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{cartCount}</span>
+                        )}
                     </Link>
                     <Link href="/profile"><User size={20} /></Link>
                 </div>

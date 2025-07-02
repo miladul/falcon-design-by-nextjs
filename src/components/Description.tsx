@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 export default function Description({ content }: { content: string }) {
     const [showAll, setShowAll] = useState(false);
+
+    console.log('content', content)
     return (
         <div className="">
             <h2 className="font-semibold text-lg mb-2">Description</h2>
@@ -14,6 +16,7 @@ export default function Description({ content }: { content: string }) {
                         showAll ? '' : 'max-h-[4.5rem] overflow-hidden'
                     }`}
                 >
+                    {/*<div dangerouslySetInnerHTML={{ __html: content }} />*/}
                     {content}
                 </p>
 

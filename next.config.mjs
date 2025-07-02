@@ -2,6 +2,14 @@
 const nextConfig = {
     images: {
         domains: ['demo.sirv.com', 'via.placeholder.com', 'upload.wikimedia.org'], // add other domains as needed
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: '157.230.240.97',
+                port: '8888',
+                pathname: '/storage/media/**',
+            },
+        ],
     },
 };
 

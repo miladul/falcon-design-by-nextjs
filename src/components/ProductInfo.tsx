@@ -7,6 +7,7 @@ import {ChevronDownIcon, ShareIcon, HeartIcon} from '@heroicons/react/24/solid';
 export default function ProductInfo({product, categories}: { product: Product, categories: any[] }) {
     const category = categories.find(c => c.id === product.category_id);
 
+    console.log('product info', product)
     return (
         <div>
             <h1 className="text-2xl font-semibold">{product.name}</h1>
@@ -14,7 +15,7 @@ export default function ProductInfo({product, categories}: { product: Product, c
             <div className="flex justify-between items-center mt-2">
                 {/* Left side */}
                 <p className="flex items-center text-black-600 text-xl">
-                    4.7 ⭐⭐⭐⭐⭐ 2,254
+                    {product.rating_avg} ⭐⭐⭐⭐⭐ {product.rating_count}
                     <ChevronDownIcon className="w-5 h-5 text-gray-500 ml-1"/>
                 </p>
 
@@ -26,8 +27,15 @@ export default function ProductInfo({product, categories}: { product: Product, c
             </div>
 
             <div className="flex items-start gap-2 mt-2">
-                <p className="text-green-600 text-xl">৳1,139.33</p>
-                <p className="line-through text-gray-400 text-sm self-start">৳1,500</p>
+                <p className="text-green-600 text-xl">
+                    ৳{product.product_detail.discount_price}
+                </p>
+
+                {product.product_detail.regular_price !== product.product_detail.discount_price && (
+                    <p className="line-through text-gray-400 text-sm self-start">
+                        ৳{product.product_detail.regular_price}
+                    </p>
+                )}
             </div>
 
             <p className="flex items-center text-sm text-gray-500 mt-1">
@@ -93,7 +101,7 @@ export default function ProductInfo({product, categories}: { product: Product, c
             </div>
 
             <div className="mt-4">
-                <QuantitySelector/>
+                <QuantitySelector max={product.total_stock_qty}/>
             </div>
 
             <div className="mt-4 w-full md:w-[65%]">

@@ -1,5 +1,5 @@
 // app/product/[slug]/page.tsx
-import {fetchProductDetails, fetchCategories} from '@/lib/api';
+import {fetchProductDetails, fetchCategories} from '../../../lib/api';
 
 import DefaultLayout from "../../../components/layouts/DefaultLayout";
 import ProductGallery from "../../../components/ProductGallery";
