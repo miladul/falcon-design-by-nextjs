@@ -12,6 +12,8 @@ interface CartItem {
     color?: string;
     size?: string;
     selected?: boolean; // add this property
+    merchant_id?: number
+    shop_name?: string
 }
 
 interface CartState {

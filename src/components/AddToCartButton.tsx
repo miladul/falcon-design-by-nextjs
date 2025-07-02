@@ -15,7 +15,11 @@ export default function AddToCartButton({ product }: { product: Product }) {
     const cartItems = useSelector((state: RootState) => state.cart.items);
 
     const handleAdd = () => {
-        const alreadyInCart = cartItems.some((item) => item.id === product.id);
+        //const alreadyInCart = cartItems.some((item) => item.id === product.id);
+        const alreadyInCart = cartItems.some(
+            (item) => item.id === product.id && item.merchant_id === product.merchant.id
+        );
+
 
         if (alreadyInCart) {
             MySwal.fire({
@@ -37,6 +41,8 @@ export default function AddToCartButton({ product }: { product: Product }) {
             price: product.product_detail?.discount_price,
             oldPrice: product.product_detail?.regular_price,
             quantity: 1,
+            merchant_id: product.merchant.id,
+            shop_name: product.merchant.shop_name,
         }));
 
         MySwal.fire({

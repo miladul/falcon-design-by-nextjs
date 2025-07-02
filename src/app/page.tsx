@@ -24,10 +24,6 @@ export default function Home() {
 
     return (
         <DefaultLayout>
-            <div className="text-3xl font-bold text-center text-blue-500 mt-10">
-                Hello E-commerce!
-            </div>
-
             {loading ? (
                 <div className="text-center mt-4 text-gray-600">Loading...</div>
             ) : (
