@@ -41,13 +41,6 @@ export default function Home() {
                             />
                             <h2 className="text-lg font-semibold">{product.name}</h2>
 
-                            {/*<p className="text-sm text-gray-500 line-through">
-                                Regular: ৳{product.regular_price}
-                            </p>
-                            <p className="text-sm text-red-600 font-semibold mb-3">
-                                Now: ৳{product.discount_price}
-                            </p>*/}
-
                             {product.regular_price !== product.discount_price ? (
                                 <>
                                     <p className="text-sm text-gray-500 line-through">

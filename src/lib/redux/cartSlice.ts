@@ -11,6 +11,7 @@ interface CartItem {
     quantity: number;
     color?: string;
     size?: string;
+    selected?: boolean; // add this property
 }
 
 interface CartState {
@@ -50,6 +51,21 @@ const cartSlice = createSlice({
             const item = state.items.find(item => item.id === action.payload);
             if (item && item.quantity > 1) item.quantity -= 1;
         },
+
+        toggleSelectItem(state, action: PayloadAction<number>) {
+            const item = state.items.find(i => i.id === action.payload);
+            if (item) {
+                item.selected = !item.selected;
+            }
+        },
+
+        selectAllItems(state) {
+            state.items.forEach(i => (i.selected = true));
+        },
+
+        deselectAllItems(state) {
+            state.items.forEach(i => (i.selected = false));
+        },
     },
 });
 
@@ -62,4 +78,5 @@ export const {
     decrementQuantity,
 } = cartSlice.actions;
 
+export const { toggleSelectItem, selectAllItems, deselectAllItems } = cartSlice.actions;
 export default cartSlice.reducer;

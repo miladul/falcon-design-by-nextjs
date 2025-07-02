@@ -1,9 +1,14 @@
 import { Search, ShoppingCart, User, Star } from "lucide-react";
 import Link from "next/link";
 
-const TopBar = () => {
-    const cartCount = 0;
+import { useSelector } from "react-redux";
+import { RootState } from "../lib/redux/store"; // Adjust path if needed
 
+const TopBar = () => {
+    const cartItems = useSelector((state: RootState) => state.cart.items);
+
+    // Show count of unique items in cart
+    const cartCount = cartItems.length;
     return (
         <div className="bg-black text-white">
             <div className="container mx-auto px-20 py-2 flex flex-wrap lg:flex-nowrap items-center justify-between gap-2">
