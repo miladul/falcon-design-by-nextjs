@@ -11,7 +11,14 @@ import SoldByCard from "../../../components/SoldByCard";
 import Link from "next/link";
 
 
-export default async function ProductPage({ params }: { params: { slug: string } }) {
+// ✅ Define proper interface for props
+interface PageProps {
+    params: {
+        slug: string;
+    };
+}
+
+export default async function ProductPage({ params }: PageProps) {
 
     console.log('params.slug', params.slug)
     const product = await fetchProductDetails(params.slug);
