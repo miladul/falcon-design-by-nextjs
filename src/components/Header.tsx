@@ -1,13 +1,24 @@
 'use client';
 
 import Link from "next/link";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Menu, X, BoxIcon, StoreIcon } from "lucide-react";
 import { MicrophoneIcon } from "@heroicons/react/16/solid";
 import TopBar from "./TopBar";
+import {fetchCategories} from "../lib/api";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const getCategories = async () => {
+            const data = await fetchCategories();
+            setCategories(data);
+        };
+
+        getCategories();
+    }, []);
 
     return (
         <div className="sticky top-0 z-50">
@@ -45,6 +56,20 @@ export default function Header() {
                                 <Link href="/cat3" className="hover:text-black">Mother & Baby</Link>
                                 <Link href="/cat4" className="hover:text-black">Automotive</Link>
                                 <Link href="/cat5" className="hover:text-black">Sports Gear</Link>
+
+                                {/*{categories.length === 0 ? (
+                                    <p>Loading categories...</p>
+                                ) : (
+                                    categories.slice(0, 5).map(category => (
+                                        <Link
+                                            key={category.id}
+                                            href={`/${category.id}`}
+                                            className="hover:text-black"
+                                        >
+                                            {category.name}
+                                        </Link>
+                                    ))
+                                )}*/}
                             </nav>
                         </div>
                     </div>
