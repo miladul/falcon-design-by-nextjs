@@ -178,7 +178,10 @@ export default function CartSync() {
                                                 onClick={() => dispatch(removeFromCart(item.id))}
                                                 className="text-gray-500 hover:text-red-600"
                                             >
-                                                🗑️
+
+                                                <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.38536 2.36988V0.962341H11.3973V2.36988H14.9033V3.77742H13.5009V14.3339C13.5009 14.7226 13.187 15.0377 12.7997 15.0377H2.98298C2.59572 15.0377 2.28178 14.7226 2.28178 14.3339V3.77742H0.879395V2.36988H4.38536ZM3.68417 3.77742V13.6302H12.0985V3.77742H3.68417ZM5.78775 5.88872H7.19014V11.5189H5.78775V5.88872ZM8.59253 5.88872H9.99492V11.5189H8.59253V5.88872Z" fill="#94A3B8"/>
+                                                </svg>
                                             </button>
                                         </div>
                                     </div>

@@ -1,8 +1,30 @@
+// next.config.js
+
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['demo.sirv.com', 'via.placeholder.com', 'upload.wikimedia.org', 'picsum.photos'], // add other domains as needed
         remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'demo.sirv.com',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'via.placeholder.com',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'upload.wikimedia.org',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
+                pathname: '/**',
+            },
             {
                 protocol: 'http',
                 hostname: '157.230.240.97',
