@@ -94,6 +94,7 @@ export default function CartSync() {
                 <div className="flex gap-4 text-sm text-gray-500">
                     <label className="flex items-center gap-1 cursor-pointer">
                         <input
+                            className="cursor-pointer"
                             type="checkbox"
                             checked={allSelected}
                             onChange={(e) => toggleSelectAll(e.target.checked)}
@@ -102,7 +103,7 @@ export default function CartSync() {
                     </label>
                     <button
                         onClick={() => dispatch(clearCart())}
-                        className="hover:text-red-500"
+                        className="hover:text-red-500 cursor-pointer"
                     >
                         Clear All
                     </button>
@@ -117,12 +118,16 @@ export default function CartSync() {
                 Object.entries(groupedItems).map(([merchantId, items]) => (
                     <div key={merchantId} className="mb-8">
                         <div className="text-lg font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                            <input
-                                type="checkbox"
-                                checked={isMerchantGroupSelected(items)}
-                                onChange={(e) => toggleMerchantSelectAll(items, e.target.checked)}
-                            />
-                            🏬 {items[0].shop_name}
+                            <label className="flex items-center gap-1 cursor-pointer">
+                                <input
+                                    className="cursor-pointer"
+                                    type="checkbox"
+                                    checked={isMerchantGroupSelected(items)}
+                                    onChange={(e) => toggleMerchantSelectAll(items, e.target.checked)}
+                                />
+                                🏬 {items[0].shop_name}
+                            </label>
+
                         </div>
 
                         {items.map((item) => (
@@ -133,6 +138,7 @@ export default function CartSync() {
                                 <div className="grid grid-cols-12 gap-4 border-t pt-3 items-center">
                                     <div className="col-span-1 flex justify-center">
                                         <input
+                                            className="cursor-pointer"
                                             type="checkbox"
                                             checked={selectedIds.includes(item.id)}
                                             onChange={() => toggleSelectItem(item.id)}

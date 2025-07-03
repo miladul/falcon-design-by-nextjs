@@ -29,7 +29,7 @@ const TopBar = () => {
                     <div className="flex w-full border border-gray-600 rounded overflow-hidden">
                         <input
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Search for anything...."
                             className="px-3 py-1 bg-white text-black w-full focus:outline-none"
                         />
                         <button className="px-2 bg-green-600 hover:bg-green-700 cursor-pointer">

@@ -40,7 +40,7 @@ export default async function ProductPage({ params }: PageProps) {
                 </div>
             </div>
 
-            <div className="px-20 py-10 bg-white ">
+            <div className="px-2 md:px-20 py-10 bg-white ">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
                     <div className="md:col-span-4">
                         <ProductGallery images={product.image} />
@@ -59,14 +59,14 @@ export default async function ProductPage({ params }: PageProps) {
                 </div>
 
             </div>
-            <div className="mt-2 mx-20 ">
-                <div className="bg-white w-[80%] p-5">
+            <div className="mx-2 md:mx-20 mt-2">
+                <div className="bg-white w-[100%] md:w-[80%] p-5">
                     <Description content={product.description}/>
                 </div>
             </div>
 
-            <div className="mt-2 mx-20 ">
-                <div className="bg-white w-[80%] p-5">
+            <div className="mx-2 md:mx-20 mt-2">
+                <div className="bg-white w-[100%] md:w-[80%] p-5">
                     <Specification/>
                 </div>
             </div>
