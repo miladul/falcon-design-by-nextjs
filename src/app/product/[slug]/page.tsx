@@ -1,4 +1,3 @@
-// app/product/[slug]/page.tsx
 import {fetchProductDetails, fetchCategories} from '../../../lib/api';
 
 import DefaultLayout from "../../../components/layouts/DefaultLayout";
@@ -10,8 +9,6 @@ import DeliveryOptionsCard from "../../../components/DeliveryOptionsCard";
 import SoldByCard from "../../../components/SoldByCard";
 import Link from "next/link";
 
-
-// ✅ Define proper interface for props
 interface PageProps {
     params: {
         slug: string;
@@ -19,19 +16,24 @@ interface PageProps {
 }
 
 export default async function ProductPage({ params }: PageProps) {
-
-    console.log('params.slug', params.slug)
     const product = await fetchProductDetails(params.slug);
     const categories = await fetchCategories();
 
+    const productCategory = categories.find(
+        (category) => category.id === product.category_id
+    );
+
+    const categoryName = productCategory?.name || '';
+
     return (
         <DefaultLayout>
+            <title>Product Details</title>
             <div className="px-2 md:px-20 grid grid-cols-1 md:grid-cols-12 gap-10 my-2">
                 <div className="md:col-span-12">
                     <div className="text-sm text-gray-600">
                         <Link href="/" className="hover:underline text-black-600">Home</Link>
                         <span className="mx-2">{'>'}</span>
-                        <span className="text-gray-800 font-medium">{product.merchant.shop_name}</span>
+                        <span className="text-gray-800 font-medium">{categoryName}</span>
                         <span className="mx-2">{'>'}</span>
                         <span className="text-gray-800 font-medium">{product.name}</span>
                     </div>

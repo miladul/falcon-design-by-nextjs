@@ -39,6 +39,8 @@ export default function Home() {
 
     return (
         <DefaultLayout>
+            <title>Home Page</title>
+
             {loading ? (
                 <div className="text-center mt-4 text-gray-600">Loading...</div>
             ) : (
